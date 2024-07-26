@@ -48,7 +48,6 @@ export const RecipeView = (props: Props) => {
     setNewIngredients(props.recipe ? props.recipe.ingredients.map(ingredient => ingredient.name) : []);
   }, [props.recipe]);
 
-  //<span> &#9998;</span>
   return (
     props.recipe ? (
       <S.RecipeView>

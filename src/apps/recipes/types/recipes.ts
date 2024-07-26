@@ -18,3 +18,23 @@ export type RecipeDetail = {
     author_id: GUID;
     author_name: string;
 }
+
+export type Id = {
+    id?: GUID;
+}
+
+export type IngredientDTO = {
+    name: string;
+}
+
+export type UpdateRecipe = {
+    name: string;
+    ingredients: IngredientDTO[];
+    author_id: GUID;
+    author_name: string;
+}
+
+export type UpdateRecipeDTO = {
+    id: GUID;
+    recipe: RecipeDetail;
+}

@@ -10,9 +10,8 @@ export enum Method {
     DELETE = 'DELETE',
 }
 
-export const request = async (url: string, method: Method, body?: any) => {
+export const request = async (url: string, method: Method, body?: any): Promise<any | undefined> => {
     try {
-        console.log('request', url, method, body)
         const response = await fetch(url, {
             method,
             headers: {
@@ -21,7 +20,7 @@ export const request = async (url: string, method: Method, body?: any) => {
             body: JSON.stringify(body),
         });
 
-        return response.json();
+        return await response.json();
     } catch (error) {
         console.error(error);
     }

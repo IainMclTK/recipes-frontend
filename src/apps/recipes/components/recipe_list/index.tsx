@@ -1,6 +1,6 @@
 import * as S from "./styles"
 import { Recipe } from "../../types/recipes"
-import { RecipeListItem } from "../recipe_list_item/recipe_list_item"
+import { RecipeListItem } from "../recipe_list_item"
 
 export interface Props {
   recipes: Recipe[];

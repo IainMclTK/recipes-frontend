@@ -1,5 +1,5 @@
 import { Recipe, RecipeDetail, GUID, UpdateRecipeDTO, IngredientDTO, Id } from "../types/recipes";
-import { Method, request } from "../../../helpers/api_helper";
+import { Method, request } from "../../../shared/helpers/api_helper";
 
 export const getRecipes = async (): Promise<Recipe[]> => {
     const request_url: string = process.env.REACT_APP_RECIPE_URL ? process.env.REACT_APP_RECIPE_URL.toString() : "";

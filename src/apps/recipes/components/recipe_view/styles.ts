@@ -85,29 +85,6 @@ export const EditButton = styled.div`
     }
 `;
 
-export const Input = styled.input`
-    font-size: 1rem;
-    padding: 0.5rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 100%;
-`;
-
-export const AddButton = styled.button`
-    font-size: 1rem;
-    padding: 0.5rem;
-    border-radius: 5px;
-    border: none;
-    background-color: #3f51b5;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.2s;
-
-    &:hover {
-        background-color: #303f9f;
-    }
-`;
-
 export const DeleteButton = styled.button`
     font-size: 1rem;
     padding: 0.5rem;

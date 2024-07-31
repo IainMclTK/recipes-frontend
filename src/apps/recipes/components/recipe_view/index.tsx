@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { RecipeDetail, UpdateRecipe, UpdateRecipeDTO } from "../../types/recipes";
 import { updateRecipe } from "../../services/recipe_service"
+import { getUserState } from "../../../users/services/user_service";
+import { InputField, ActionButton } from "../../../../shared/components";
 import * as S from "./styles";
 
 export interface Props {
@@ -8,15 +10,16 @@ export interface Props {
 }
 
 export const RecipeView = (props: Props) => {
-  const toTitleCase = (str: string) => {
+  const user = getUserState();
+
+  const toTitleCase = (str: string): string => {
     return str.replace(/_/g, ' ').replace(/\w\S*/g, (txt) => {
       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
   }
 
-  // TODO: Pass through the user info
-  const canEdit = (author_id: string) => {
-    return author_id === props.recipe?.author_id;
+  const canEdit = (author_id: string): boolean => {
+    return author_id === user!.id;
   }
 
   const saveRecipe = () => {
@@ -79,7 +82,7 @@ export const RecipeView = (props: Props) => {
             {newIngredients.map((ingredient, index) => (
               editing ? (
                 <S.ListItem key={index}>
-                  <S.Input type="text" value={ingredient} onChange={(e) => {
+                  <InputField type="text" value={ingredient} onChange={(e) => {
                     const newIncredientsCopy = [...newIngredients];
                     newIncredientsCopy[index] = e.target.value;
                     setNewIngredients(newIncredientsCopy);
@@ -95,13 +98,13 @@ export const RecipeView = (props: Props) => {
           </S.List>
           {editing && (
             <S.ActionButtons>
-              <S.AddButton onClick={() => setNewIngredients([...newIngredients, ""])}>
+              <ActionButton onClick={() => setNewIngredients([...newIngredients, ""])}>
                 Add Ingredient
-              </S.AddButton>
+              </ActionButton>
 
-              <S.AddButton onClick={saveRecipe}>
+              <ActionButton onClick={saveRecipe}>
                 Save Recipe
-              </S.AddButton>
+              </ActionButton>
             </S.ActionButtons>
           )}
         </S.Ingredients>

@@ -1,9 +1,7 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const RecipeDetail = styled.div`
+  padding: 4rem;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f0f0f0;
 `;

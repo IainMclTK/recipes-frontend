@@ -37,4 +37,5 @@ export type UpdateRecipe = {
 export type UpdateRecipeDTO = {
     id: GUID;
     recipe: RecipeDetail;
+    updating_user_id: GUID;
 }

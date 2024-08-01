@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
-import { createUser, saveUserState } from '../../../users/services/user_service';
+import { createUser, saveUserState } from '../../services/user_service';
 import { InputField, ActionButton } from '../../../../shared/components';
 
 import * as S from '../styles';

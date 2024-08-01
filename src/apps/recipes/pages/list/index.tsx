@@ -1,6 +1,8 @@
-import React from 'react';
-
 import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+
+import * as S from './styles';
+import { ActionButton } from '../../../../shared/components';
 
 import { Recipe } from '../../types/recipes';
 import { RecipeList } from '../../components/recipe_list';
@@ -8,6 +10,8 @@ import { getRecipes } from '../../services/recipe_service';
 
 export const Recipes = () => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
+
+  const history = useHistory();
 
   const fetchRecipes = async () => {
     await getRecipes().then((rec) => {
@@ -18,17 +22,23 @@ export const Recipes = () => {
     });
   }
 
+  const createNewRecipe = () => {
+    history.push(`/recipes/new`);
+  }
+
   useEffect(() => {
     fetchRecipes()
   }, []);
 
   return (
     <div>
-      <h2>{process.env.REACT_APP_TEST_VAR}</h2>
-      <button >Get Recipes</button>
-      <div>
+      <S.Title>Recipes</S.Title>
+      <S.Centered>
+        <ActionButton onClick={createNewRecipe}>New Recipe</ActionButton>
+      </S.Centered>
+      <S.Centered>
         <RecipeList recipes={recipes} />
-      </div>
+      </S.Centered>
     </div>
   );
 }

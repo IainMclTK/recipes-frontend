@@ -5,4 +5,6 @@ export const CardList = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
+    max-width: 1800px;
+    margin: 0 5rem;
 `;

@@ -1,18 +1,24 @@
 import * as S from './styles';
 import { Recipe } from '../../types/recipes';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+
+import { ActionButton } from '../../../../shared/components'
 
 export interface Props {
   recipe: Recipe;
 }
 
 export const RecipeListItem = (props: Props) => {
+  const history = useHistory();
+
+  const goToRecipe = () => {
+    history.push(`/recipes/${props.recipe.id}`);
+  }
+
   return (
     <S.RecipeCard>
       <S.Title>{props.recipe.name}</S.Title>
-      <Link to={`/recipes/${props.recipe.id}`}>
-        <S.Button >View Recipe</S.Button>
-      </Link>
+      <ActionButton onClick={goToRecipe}>View Recipe</ActionButton>
     </S.RecipeCard>
   );
 }

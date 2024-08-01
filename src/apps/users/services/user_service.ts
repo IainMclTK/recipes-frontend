@@ -19,7 +19,6 @@ export const getUser = async (email: string): Promise<User> => {
     }
     request_url += `?email=${email}`;
     const user = await request(request_url, Method.GET) as User;
-    console.log(user);
     return user;
 }
 

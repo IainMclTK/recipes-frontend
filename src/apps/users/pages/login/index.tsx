@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
-import { getUser, saveUserState } from '../../../users/services/user_service';
-import { User } from '../../../users/types';
+import { getUser, saveUserState } from '../../services/user_service';
+import { User } from '../../types';
 import { InputField, ActionButton } from '../../../../shared/components';
 
 import * as S from '../styles';

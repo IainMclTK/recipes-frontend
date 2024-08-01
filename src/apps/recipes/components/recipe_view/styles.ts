@@ -107,3 +107,10 @@ export const ActionButtons = styled.div`
     gap: 1rem;
     justify-content: center;
 `;
+
+export const CanEditBlock = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+`;

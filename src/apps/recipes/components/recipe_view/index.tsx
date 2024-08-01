@@ -21,7 +21,7 @@ export const RecipeView = (props: Props) => {
   }
 
   const canEdit = (author_id: string): boolean => {
-    return author_id === user!.id;
+    return author_id === user?.id;
   }
 
   const saveRecipe = () => {
@@ -48,7 +48,6 @@ export const RecipeView = (props: Props) => {
   }
 
   const deleteCurrentRecipe = async () => {
-    // TODO: delete recipe
     const success = await deleteRecipe(props.recipe!.id, user!.id);
     if (success) {
       history.push('/recipes');
